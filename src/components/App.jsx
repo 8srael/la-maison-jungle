@@ -5,6 +5,7 @@ import logo from '../assets/logo.png';
 import QuestionForm from "./QuestionForm";
 import Footer from "./Footer";
 import '../styles/Layout.css';
+import { useState } from "react";
 
 
 function handleSubmit(event) {
@@ -13,6 +14,9 @@ function handleSubmit(event) {
 }
 
 function App() {
+
+    const [cart, updateCart] = useState([]);
+    
     return (
         <div>
             {/* props children */}
@@ -22,8 +26,8 @@ function App() {
             </Banner>
 
             <div className="lmj-layout-inner">
-                <Cart />
-                <ShoppingList />
+                <Cart cart={cart} updateCart={updateCart} />
+                <ShoppingList cart={cart} updateCart={updateCart} />
             </div>
 
 {/* 
